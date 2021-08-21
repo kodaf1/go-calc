@@ -61,7 +61,18 @@ func parseInts(str, sep string) (int64, int64, error) {
 }
 
 func (m *MathExpression) Solve() float64 {
-	panic("implement me")
+	switch m.Operator {
+	case sum:
+		return float64(m.X + m.Y)
+	case diff:
+		return float64(m.X - m.Y)
+	case mul:
+		return float64(m.X * m.Y)
+	case div:
+		return float64(m.X) / float64(m.Y)
+	}
+
+	return 0
 }
 
 func (m *MathExpression) String() string {
